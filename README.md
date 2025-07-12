@@ -107,7 +107,7 @@ Crea un archivo `.env` en la raíz del proyecto:
 
 ```env
 # Configuración de la API
-REACT_APP_API_URL=http://localhost:3001/api
+REACT_APP_API_URL=http://localhost:3001/
 
 # Configuración de desarrollo
 REACT_APP_ENV=development
