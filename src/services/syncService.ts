@@ -53,7 +53,6 @@ class SyncService {
 
       console.log(`Sincronizando ${unsyncedNotes.length} notas...`);
       
-      // Simular envío al backend
       if (unsyncedNotes.length > 0) {  
         await this.syncAllNotes(unsyncedNotes);
       }
@@ -71,21 +70,6 @@ class SyncService {
     }
   }
 
-  private async sendNoteToBackend(note: Note): Promise<void> {
-    // Simulación de envío al backend
-    // En un proyecto real, aquí harías una llamada HTTP a tu API
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        // Simular éxito 95% de las veces
-        if (Math.random() > 0.05) {
-          console.log(`Nota "${note.title}" enviada al backend`);
-          resolve();
-        } else {
-          reject(new Error('Error de red simulado'));
-        }
-      }, 500); // Simular latencia de red
-    });
-  }
 
   public async forceSync(): Promise<void> {
     if (!this.isOnline) {

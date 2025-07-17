@@ -1,4 +1,3 @@
-import { useState, useCallback, useEffect } from 'react';
 import api from './api';
 
 // Tipos
@@ -37,12 +36,6 @@ export const noteApi = {
     return response.data;
   },
 
-  // Crear nueva nota
-  createNotes: async (notesData: CreateNoteData[], userId: number): Promise<Note> => {
-    const response = await api.post(`/notes/notes/user/${userId}`, notesData);
-    return response.data;
-  },
-
   createNote: async (noteData: CreateNoteData, userId: number): Promise<Note> => {
     const response = await api.post(`/notes/note/user/${userId}`, {
       title: noteData.title,
@@ -63,17 +56,6 @@ export const noteApi = {
     await api.delete(`/notes/${noteId}`);
   },
 
-  // Sincronizar notas offline
-  syncNotes: async (notes: Note[]): Promise<Note[]> => {
-    const response = await api.post('/notes/sync', { notes });
-    return response.data;
-  },
-
-  // Buscar notas
-  searchNotes: async (userId: string, searchTerm: string): Promise<Note[]> => {
-    const response = await api.get(`/notes/search?userId=${userId}&q=${encodeURIComponent(searchTerm)}`);
-    return response.data;
-  },
 };
 
 export const syncNote = async (note: Note, userId: number) => {

@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { Note } from '../db/database';
 import NotesList from './NotesList';
 import NoteEditor from './NoteEditor';
-import PWAStatus from './PWAStatus';
 import { toast } from 'react-hot-toast';
 
 const Dashboard: React.FC = () => {
@@ -109,9 +108,6 @@ const Dashboard: React.FC = () => {
           </div>
         )}
       </main>
-
-      {/* PWA Status */}
-      <PWAStatus />
     </div>
   );
 };

@@ -95,13 +95,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const logout = async () => {
     setIsLoading(true);
     try {
-      // Intentar logout en el backend
-      try {
-        await userApi.logout();
-      } catch (error) {
-        console.error('Backend logout error:', error);
-      }
-      
       // Limpiar estado local
       localStorage.removeItem('authToken');
       await dbService.logout();

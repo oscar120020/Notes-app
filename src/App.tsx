@@ -6,7 +6,6 @@ import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import './index.css';
 import { syncService } from './services/syncService';
-// import { useAuth } from './services/userServices';
 
 // Componente para proteger rutas
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
